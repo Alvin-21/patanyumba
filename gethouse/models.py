@@ -48,6 +48,12 @@ class Accomodation(models.Model):
     def delete_accom(self):
         self.delete()
 
+    @classmethod
+    def search_by_address(cls, search_term):
+        accomodation = cls.objects.filter(address__icontains=search_term)
+        return accomodation
+    
+
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=100)
