@@ -30,6 +30,6 @@ class AccomodationTest(TestCase):
         accom = Accomodation.objects.all()
         self.assertTrue(len(accom) == 0)
 
-    def test_search_image(self):
+    def test_search_accom(self):
         accom = Accomodation.search_by_address('Nairobi')
         self.assertTrue(len(accom) == 1)
