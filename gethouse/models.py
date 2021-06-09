@@ -13,34 +13,34 @@ class Amenities(models.Model):
 
 class Accomodation(models.Model):
     PROPERTY_TYPE_VALUES = (
-        ('House'),
-        ('Apartment'),
+        ('House', 'House'),
+        ('Apartment', 'Apartment'),
     )
 
     LEN_OF_STAY_VALUES = (
-        ('1 week'),
-        ('2 weeks'),
-        ('1 month'),
-        ('2 months'),
-        ('3 months'),
-        ('4 months'),
-        ('6 months'),
-        ('9 months'),
-        ('12 months +'),
+        ('1 week', '1 week'),
+        ('2 weeks', '2 weeks'),
+        ('1 month', '1 month'),
+        ('2 months', '2 months'),
+        ('3 months', '3 months'),
+        ('4 months', '4 months'),
+        ('6 months', '6 months'),
+        ('9 months', '9 months'),
+        ('12 months +', '12 months +'),
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image = CloudinaryField('image', null=True)
     title = models.CharField(max_length=50)
-    description = models.CharField()
+    description = models.CharField(max_length=2000)
     address = models.CharField(max_length=150)
-    type_of_property = models.CharField(choices=PROPERTY_TYPE_VALUES)
+    type_of_property = models.CharField(choices=PROPERTY_TYPE_VALUES, max_length=100)
     rent = models.IntegerField()
     bedrooms = models.PositiveIntegerField()
     bathrooms = models.PositiveIntegerField()
     amenities = models.ManyToManyField(Amenities)
     number_of_residents = models.PositiveIntegerField()
     date_available = models.DateField()
-    minimum_length_of_stay = models.CharField(choices=LEN_OF_STAY_VALUES)
+    minimum_length_of_stay = models.CharField(choices=LEN_OF_STAY_VALUES, max_length=100)
 
 
 class Profile(models.Model):
