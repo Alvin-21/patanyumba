@@ -47,3 +47,8 @@ class ProfileTest(TestCase):
 
     def test_instance(self):
         self.assertTrue(isinstance(self.prof, Profile))
+
+    def test_save_method(self):
+        self.prof.save_profile()
+        profile = Profile.objects.all()
+        self.assertTrue(len(profile) > 0)
