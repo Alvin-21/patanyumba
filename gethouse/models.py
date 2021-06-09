@@ -64,7 +64,7 @@ class Profile(models.Model):
     image = CloudinaryField('image', null=True)
     bio = models.CharField(max_length=200)
     email = models.EmailField()
-    number = models.IntegerField()
+    number = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
         return self.first_name + " " + self.last_name

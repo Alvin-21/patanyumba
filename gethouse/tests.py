@@ -33,3 +33,17 @@ class AccomodationTest(TestCase):
     def test_search_accom(self):
         accom = Accomodation.search_by_address('Nairobi')
         self.assertTrue(len(accom) == 1)
+
+    
+class ProfileTest(TestCase):
+    def tearDown(self):
+        Amenities.objects.all().delete()
+        Accomodation.objects.all().delete()
+        Profile.objects.all().delete()
+
+    def setUp(self):
+        self.user = User.objects.create_user('john', email=None, password='secretpassword')
+        self.prof = Profile(user=self.user, first_name='John', last_name='Doe', bio='This is a test example of my bio', email='john@test.com', number='0712345678')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.prof, Profile))
