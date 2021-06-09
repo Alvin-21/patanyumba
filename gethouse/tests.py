@@ -24,3 +24,8 @@ class AccomodationTest(TestCase):
     def test_save_method(self):
         accom = Accomodation.objects.all()
         self.assertTrue(len(accom) == 1)
+
+    def test_delete_method(self):
+        self.property.delete_accom()
+        accom = Accomodation.objects.all()
+        self.assertTrue(len(accom) == 0)
