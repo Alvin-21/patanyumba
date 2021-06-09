@@ -42,6 +42,9 @@ class Accomodation(models.Model):
     date_available = models.DateField()
     minimum_length_of_stay = models.CharField(choices=LEN_OF_STAY_VALUES, max_length=100)
 
+    def __str__(self):
+        return self.title
+
     def save_accom(self):
         self.save()
 
@@ -62,3 +65,12 @@ class Profile(models.Model):
     bio = models.CharField(max_length=200)
     email = models.EmailField()
     number = models.IntegerField()
+
+    def __str__(self):
+        return self.first_name + " " + self.last_name
+
+    def save_profile(self):
+        self.save()
+
+    def delete_profile(self):
+        self.delete()
