@@ -45,6 +45,8 @@ class Accomodation(models.Model):
     def save_accom(self):
         self.save()
 
+    def delete_accom(self):
+        self.delete()
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
