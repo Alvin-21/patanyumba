@@ -29,3 +29,7 @@ class AccomodationTest(TestCase):
         self.property.delete_accom()
         accom = Accomodation.objects.all()
         self.assertTrue(len(accom) == 0)
+
+    def test_search_image(self):
+        accom = Accomodation.search_by_address('Nairobi')
+        self.assertTrue(len(accom) == 1)
