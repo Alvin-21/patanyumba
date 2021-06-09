@@ -42,6 +42,9 @@ class Accomodation(models.Model):
     date_available = models.DateField()
     minimum_length_of_stay = models.CharField(choices=LEN_OF_STAY_VALUES, max_length=100)
 
+    def save_accom(self):
+        self.save()
+
 
 class Profile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
