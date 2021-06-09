@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Amenities(models.Model):
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
@@ -41,3 +41,13 @@ class Accomodation(models.Model):
     number_of_residents = models.PositiveIntegerField()
     date_available = models.DateField()
     minimum_length_of_stay = models.CharField(choices=LEN_OF_STAY_VALUES)
+
+
+class Profile(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    image = CloudinaryField('image', null=True)
+    bio = models.CharField(max_length=200)
+    email = models.EmailField()
+    number = models.IntegerField()
