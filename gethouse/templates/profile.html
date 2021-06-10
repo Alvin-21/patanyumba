@@ -6,11 +6,11 @@
     <figure>
         <img style="border-radius: 100%; width: 250px; height: 250px; margin-top: 10px;" src="{{profile.image.url}}" alt="Avatar image">
     </figure>
-    <h2>{{profile.first_name}}</h2>
-    <h2>{{profile.last_name}}</h2>
+    <h2>{{profile.first_name}} {{profile.last_name}}</h2>
     <h2>Email: {{profile.email}}</h2>
     {% if profile.number %}
     <h2>Phone Number: {{profile.number}}</h2>
+    {% endif %}
     <h2>Bio: {{profile.bio}}</h2>
     <a href="#" class="btn btn-outline-success btn-lg" style="margin-bottom: 10px;">Edit Profile</a>
     <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 20px;">

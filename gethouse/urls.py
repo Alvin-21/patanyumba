@@ -7,4 +7,5 @@ urlpatterns = [
     re_path(r'^search/', views.search_results, name='search_results'),
     re_path(r'^accomodation/(\d+)', views.accomodation, name='accomodation'),
     re_path(r'^new/accomodation$', views.new_accom, name='new_accomodation'),
+    re_path(r'^profile/(\d+)$', views.profile, name='profile'),
 ]
