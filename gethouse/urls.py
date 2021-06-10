@@ -3,4 +3,5 @@ from . import views
 
 urlpatterns = [
     re_path(r'^$', views.index, name='homepage'),
+    re_path(r'^ajax/newsletter/$', views.subscription, name='newsletter')
 ]
