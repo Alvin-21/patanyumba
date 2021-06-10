@@ -8,4 +8,5 @@ urlpatterns = [
     re_path(r'^accomodation/(\d+)', views.accomodation, name='accomodation'),
     re_path(r'^new/accomodation$', views.new_accom, name='new_accomodation'),
     re_path(r'^profile/(\d+)$', views.profile, name='profile'),
+    re_path(r'^edit/profile', views.edit_profile, name='edit_profile'),
 ]
