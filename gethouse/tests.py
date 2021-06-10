@@ -34,6 +34,10 @@ class AccomodationTest(TestCase):
         accom = Accomodation.search_by_address('Nairobi')
         self.assertTrue(len(accom) == 1)
 
+    def test_get_accom_by_id(self):
+        accom = Accomodation.get_accom_by_id(self.property.id)
+        self.assertTrue(accom, self.property)
+
     
 class ProfileTest(TestCase):
     def tearDown(self):

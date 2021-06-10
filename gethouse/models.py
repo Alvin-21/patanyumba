@@ -59,7 +59,7 @@ class Accomodation(models.Model):
     @classmethod
     def get_accom_by_id(cls, accom_id):
         accom = cls.objects.get(id=accom_id)
-        return image
+        return accom
     
 
 class Profile(models.Model):
