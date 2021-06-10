@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import AccomodationSerializer, ProfileSerializer
+from .permissions import IsAdminOrReadOnly
 
 # Create your views here.
 
@@ -82,7 +83,11 @@ def edit_profile(request):
     return render(request, 'edit_profile.html', {"form": form})
 
 class AccomodationList(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+
     def get(self, request, format=None):
         accoms = Accomodation.objects.all()
         serializer = AccomodationSerializer(accoms, many=True)
         return Response(serializer.data)
+
+    
