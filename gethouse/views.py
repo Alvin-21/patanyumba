@@ -150,3 +150,12 @@ class ProfileDetails(APIView):
         profile = self.get_profile(profile_id)
         serializers = ProfileSerializer(profile)
         return Response(serializers.data)
+
+    def put(self, request, profile_id, format=None):
+        profile = self.get_profile(profile_id)
+        serializers = ProfileSerializer(profile, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
