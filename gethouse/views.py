@@ -25,6 +25,18 @@ def accomodation(request, accom_id):
     accom = Accomodation.get_accom_by_id(accom_id)
     return render(request, 'accomodation.html', {"accom": accom})
 
+def search_results(request):
+    if 'address' in request.GET and request.GET["address"]:
+        search_term = request.GET.get("address")
+        searched_accom = Accomodation.search_by_address(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {"message": message, "accoms": searched_accom})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html', {"message": message})
+
 def new_accom(request):
     current_user = request.user
 
