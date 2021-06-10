@@ -123,4 +123,7 @@ class AccomodationDetails(APIView):
         else:
             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    
+    def delete(self, request, accom_id, format=None):
+        accom = self.get_accom(accom_id)
+        accom.delete()
+        return Response({"message": "The accomodation has been successfully  deleted."}, status=status.HTTP_204_NO_CONTENT)
