@@ -15,3 +15,9 @@ class SubscriptionForm(forms.Form):
 class ContactForm(forms.Form):
     email = forms.EmailField(label='Email')
     context = forms.CharField(widget=forms.Textarea)
+
+
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
