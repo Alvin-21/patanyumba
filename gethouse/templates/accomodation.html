@@ -2,30 +2,34 @@
 {%block content%}
 
 <div class="container">
-    <figure>
+    <figure class="text-center" style="margin-top: 15px;">
         <img src="{{accom.image.url}}" alt="accom.title">
     </figure>
-    <h4>{{accom.user.username}}</h4>
+    <h4>{{accom.user.username}} <i class="fa fa-check-circle" aria-hidden="true"></i></h4>
     <hr>
-    <div>
-        <p>Rent: Ksh. {{accom.rent}}</p>
-        <p>Minimum stay length: {{accom.minimum_length_of_stay}}</p>
-        <p>Move in after: {{accom.date_available}}</p>
+    <div class="row">
+        <p class="col-md-4"><i class="fa fa-money fa-lg" aria-hidden="true"></i> Rent: Ksh. {{accom.rent}}</p>
+        <p class="col-md-4"><i class="fa fa-calendar fa-lg" aria-hidden="true"></i> Minimum stay length: {{accom.minimum_length_of_stay}}</p>
+        <p class="col-md-4"><i class="fa fa-truck fa-lg" aria-hidden="true"></i> Move in after: {{accom.date_available}}</p>
     </div>
     <hr>
     <h5>Description</h5>
     <p>{{accom.description}}</p>
     <hr>
     <h5>Property Details</h5>
-    <p>Address: {{accom.address}}</p>
-    <p>Type of Property: {{accom.type_of_property}}</p>
-    <p>Number of Bedrooms: {{accom.bedrooms}}</p>
-    <p>Number of Bathrooms: {{accom.bathrooms}}</p>
-    <p>Number of Residents: {{accom.number_of_residents}}</p>
+    <div class="row">
+        <p class="col-md-6"><i class="fa fa-location-arrow fa-lg" aria-hidden="true"></i> Address: {{accom.address}}</p>
+        <p class="col-md-6"><i class="fa fa-home fa-lg" aria-hidden="true"></i> Type of Property: {{accom.type_of_property}}</p>
+    </div>
+    <div class="row">
+        <p class="col-md-6"><i class="fa fa-bed fa-lg" aria-hidden="true"></i> Number of Bedrooms: {{accom.bedrooms}}</p>
+        <p class="col-md-6"><i class="fa fa-bath fa-lg" aria-hidden="true"></i> Number of Bathrooms: {{accom.bathrooms}}</p>
+    </div>
+    <p><i class="fa fa-users fa-lg" aria-hidden="true"></i> Number of Residents: {{accom.number_of_residents}}</p>
     <hr>
     <h5>Amenities</h5>
     <p> 
-        {% for amenity in accom.ammenities.all %}
+        {% for amenity in accom.amenities.all %}
         {{amenity}}
         {% endfor %}
     </p>
