@@ -7,3 +7,8 @@ from .models import *
 def index(request):
     accom = Accomodation.objects.all()
     return render(request, 'index.html', {"accoms": accom})
+
+def accomodation(request, accom_id):
+    accom = Accomodation.get_accom_by_id(accom_id)
+    return render(request, 'accomodation.html', {"accom": accom})
+
