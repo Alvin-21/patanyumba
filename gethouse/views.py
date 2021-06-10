@@ -5,4 +5,5 @@ from .models import *
 # Create your views here.
 
 def index(request):
-    return render(request, 'index.html')
+    accom = Accomodation.objects.all()
+    return render(request, 'index.html', {"accoms": accom})
