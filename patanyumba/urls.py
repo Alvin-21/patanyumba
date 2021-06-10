@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.contrib.auth import views
 from django_registration.backends.one_step.views import RegistrationView
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
     re_path(r'^admin/', admin.site.urls),
@@ -27,4 +28,5 @@ urlpatterns = [
     re_path(r'^accounts/', include('django_registration.backends.one_step.urls')),
     re_path(r'^accounts/', include('django.contrib.auth.urls')),
     re_path(r'^logout/$', views.LogoutView.as_view(), {"next_page": '/'}),
+    re_path(r'^api-token-auth/', obtain_auth_token),
 ]
