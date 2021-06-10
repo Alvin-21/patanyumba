@@ -90,4 +90,8 @@ class AccomodationList(APIView):
         serializer = AccomodationSerializer(accoms, many=True)
         return Response(serializer.data)
 
-    
+    def get_accom(self, accom_id):
+        try:
+            return Accomodation.objects.get(id=accom_id)
+        except Accomodation.DoesNotExist:
+            return Http404
