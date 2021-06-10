@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to PataNyumba. You will find the most exciting updates about various accomodations for you to stay in.
