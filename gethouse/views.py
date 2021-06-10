@@ -4,6 +4,10 @@ from .models import *
 from .forms import *
 from .email import send_welcome_email
 from django.contrib.auth.decorators import login_required
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  MoringaMerch
+from .serializer import AccomodationSerializer, ProfileSerializer
 
 # Create your views here.
 
@@ -77,3 +81,9 @@ def edit_profile(request):
         form = ProfileForm()
 
     return render(request, 'edit_profile.html', {"form": form})
+
+class AccomodationList(APIView):
+    def get(self, request, format=None):
+        accoms = Accomodation.objects.all()
+        serializer = AccomodationSerializer(accoms, many=True)
+        return Response(serializer.data)
