@@ -9,6 +9,7 @@ from .email import send_welcome_email
 def index(request):
     accom = Accomodation.objects.all()
     form = SubscriptionForm()
+    title = 'PataNyumba'
     return render(request, 'index.html', {"accoms": accom, "form": form})
 
 def subscription(request):
