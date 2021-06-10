@@ -3,6 +3,7 @@ from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonRespons
 from .models import *
 from .forms import *
 from .email import send_welcome_email
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -38,6 +39,7 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
 
+@login_required(login_url='/accounts/login/')
 def new_accom(request):
     current_user = request.user
 
@@ -53,12 +55,14 @@ def new_accom(request):
 
     return render(request, 'new_accomodation.html', {'form': form})
 
+@login_required(login_url='/accounts/login/')
 def profile(request, profile_id):
     current_user = request.user
     profile = Profile.objects.get(id=profile_id)
     accoms = Accomodation.objects.filter(user=current_user)
     return render(request, 'profile.html', {"profile": profile, "accoms": accoms})
 
+@login_required(login_url='/accounts/login/')
 def edit_profile(request):
     current_user = request.user
 
