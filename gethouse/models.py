@@ -55,6 +55,11 @@ class Accomodation(models.Model):
     def search_by_address(cls, search_term):
         accomodation = cls.objects.filter(address__icontains=search_term)
         return accomodation
+
+    @classmethod
+    def get_accom_by_id(cls, accom_id):
+        accom = cls.objects.get(id=accom_id)
+        return image
     
 
 class Profile(models.Model):
