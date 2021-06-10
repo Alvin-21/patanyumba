@@ -12,4 +12,5 @@ urlpatterns = [
     re_path(r'^api/accomodations$', views.AccomodationList.as_view()),
     re_path(r'api/accomodation/accom-id/(\d+)$',
             views.AccomodationDetails.as_view()),
+    re_path(r'^api/profiles$', views.ProfileList.as_view()),
 ]

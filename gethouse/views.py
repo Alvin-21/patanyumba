@@ -129,10 +129,10 @@ class AccomodationDetails(APIView):
         return Response({"message": "The accomodation has been successfully  deleted."}, status=status.HTTP_204_NO_CONTENT)
 
 
-class AccomodationList(APIView):
+class ProfileList(APIView):
     permission_classes = (IsAdminOrReadOnly,)
 
     def get(self, request, format=None):
         profiles = Profile.objects.all()
-        serializer = AccomodationSerializer(profiles, many=True)
+        serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
