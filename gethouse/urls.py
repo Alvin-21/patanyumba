@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
     re_path(r'^$', views.index, name='homepage'),
-    re_path(r'^ajax/subscription/$', views.subscription, name='subscription')
+    re_path(r'^ajax/subscription/$', views.subscription, name='subscription'),
+    re_path(r'^search/', views.search_results, name='search_results'),
 ]

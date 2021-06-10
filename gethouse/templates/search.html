@@ -4,10 +4,10 @@
 
 <div class="container">
     <div class="row">
-        {% if images%}
-        <h2>Found {{ images|length }} of searched term {{message}}</h2>
+        {% if accoms%}
+        <h2>Found {{ accoms|length }} of searched term {{message}}</h2>
         {% else %}
-        <h2> Found 0 images for the search term {{message}}</h2>
+        <h2> Found 0 accomodations for the search term {{message}}</h2>
         {% endif %}
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 20px;">
@@ -30,4 +30,4 @@
     </div>
 </div>
 
-{%endbllock%}
+{%endblock%}

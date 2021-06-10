@@ -6,7 +6,7 @@
 <div class="container">
     <h1 class="">WELCOME TO PATANYUMBA</h1>
     <p class="">Here you are able to view various accomodations for you to rent and stay in. Feel free to browse through the catalogue.</p>
-    <form action="{%url 'homepage' %}" method="post">
+    <form action="{%url 'homepage' %}" method="post" id="subscribe">
         {%csrf_token%}
         <h5>If you wish to receive updates on various accomodations so as to stay posted, please fill in the below form.</h5>
         {% bootstrap_form form layout='inline' %}

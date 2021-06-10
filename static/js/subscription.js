@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $('form').submit(function (event) {
+    $('#subscribe').submit(function (event) {
         event.preventDefault()
-        form = $("form")
+        form = $("#subscribe")
 
         $.ajax({
             'url': '/ajax/subscription/',
