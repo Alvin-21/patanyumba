@@ -90,8 +90,18 @@ class AccomodationList(APIView):
         serializer = AccomodationSerializer(accoms, many=True)
         return Response(serializer.data)
 
+
+class AccomodationDetails(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+
     def get_accom(self, accom_id):
         try:
             return Accomodation.objects.get(id=accom_id)
         except Accomodation.DoesNotExist:
             return Http404
+
+    def get(self, request, accom_id, format=None):
+        permission_classes = (IsAdminOrReadOnly,)
+        accom = self.get_accom(accom_id)
+        serializers = AccomodationSerializer(accom)
+        return Response(serializers.data)

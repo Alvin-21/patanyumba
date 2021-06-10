@@ -10,4 +10,6 @@ urlpatterns = [
     re_path(r'^profile/(\d+)$', views.profile, name='profile'),
     re_path(r'^edit/profile', views.edit_profile, name='edit_profile'),
     re_path(r'^api/accomodations$', views.AccomodationList.as_view()),
+    re_path(r'api/accomodation/accom-id/(\d+)$',
+            views.AccomodationDetails.as_view()),
 ]
