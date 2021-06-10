@@ -109,7 +109,6 @@ class AccomodationDetails(APIView):
             return Http404
 
     def get(self, request, accom_id, format=None):
-        permission_classes = (IsAdminOrReadOnly,)
         accom = self.get_accom(accom_id)
         serializers = AccomodationSerializer(accom)
         return Response(serializers.data)
@@ -136,3 +135,18 @@ class ProfileList(APIView):
         profiles = Profile.objects.all()
         serializer = ProfileSerializer(profiles, many=True)
         return Response(serializer.data)
+
+
+class ProfileDetails(APIView):
+    permission_classes = (IsAdminOrReadOnly,)
+
+    def get_profile(self, profile_id):
+        try:
+            return Profile.objects.get(id=profile_id)
+        except Profile.DoesNotExist:
+            return Http404
+
+    def get(self, request, profile_id, format=None):
+        profile = self.get_profile(profile_id)
+        serializers = ProfileSerializer(profile)
+        return Response(serializers.data)
