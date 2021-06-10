@@ -12,16 +12,16 @@
         {% bootstrap_form form layout='inline' %}
         <input type="submit" value="Subscribe">
     </form>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 20px;">
         {% for accom in accoms %}
         <div class="col">
             <div class="card">
                 <img class="card-img-top" src="{{accom.image.url}}" alt="{{accom.title}}">
                 <div class="card-body">
                     <h5 class="card-title">{{accom.title}}</h5>
-                    <p class="card-text">{{accom.type_of_property}}</p>
-                    <p class="card-text">{{accom.rent}}</p>
-                    <p class="card-text">{{accom.address}}</p>
+                    <p class="card-text">Type of Accomodation: {{accom.type_of_property}}</p>
+                    <p class="card-text">Rent: Ksh. {{accom.rent}}</p>
+                    <p class="card-text">Address: {{accom.address}}</p>
                 </div>
                 <div class="card-footer">
                     <a class="btn btn-sm" href="#">View Accomodation</a>
