@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'gethouse',
     'cloudinary',
     'bootstrap4',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
