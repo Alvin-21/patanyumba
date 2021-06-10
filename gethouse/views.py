@@ -91,6 +91,13 @@ class AccomodationList(APIView):
         serializer = AccomodationSerializer(accoms, many=True)
         return Response(serializer.data)
 
+    def post(self, request, format=None):
+        serializers = AccomodationSerializer(data=request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data, status=status.HTTP_201_CREATED)
+        return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class AccomodationDetails(APIView):
     permission_classes = (IsAdminOrReadOnly,)
@@ -115,3 +122,5 @@ class AccomodationDetails(APIView):
             return Response(serializers.data)
         else:
             return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    
