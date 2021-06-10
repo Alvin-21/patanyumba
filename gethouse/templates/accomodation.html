@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<div class="container">
+    <figure>
+        <img src="{{accom.image.url}}" alt="accom.title">
+    </figure>
+    <h4>{{accom.user.username}}</h4>
+    <hr>
+    <div>
+        <p>Rent: Ksh. {{accom.rent}}</p>
+        <p>Minimum stay length: {{accom.minimum_length_of_stay}}</p>
+        <p>Move in after: {{accom.date_available}}</p>
+    </div>
+    <hr>
+    <h5>Description</h5>
+    <p>{{accom.description}}</p>
+    <hr>
+    <h5>Property Details</h5>
+    <p>Address: {{accom.address}}</p>
+    <p>Type of Property: {{accom.type_of_property}}</p>
+    <p>Number of Bedrooms: {{accom.bedrooms}}</p>
+    <p>Number of Bathrooms: {{accom.bathrooms}}</p>
+    <p>Number of Residents: {{accom.number_of_residents}}</p>
+    <hr>
+    <h5>Amenities</h5>
+    <p> 
+        {% for amenity in accom.ammenities.all %}
+        {{amenity}}
+        {% endfor %}
+    </p>
+</div>
+
+{%endblock%}
