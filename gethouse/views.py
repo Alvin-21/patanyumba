@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import AccomodationSerializer, ProfileSerializer
 from .permissions import IsAdminOrReadOnly
+from rest_framework import status
 
 # Create your views here.
 
@@ -105,3 +106,12 @@ class AccomodationDetails(APIView):
         accom = self.get_accom(accom_id)
         serializers = AccomodationSerializer(accom)
         return Response(serializers.data)
+
+    def put(self, request, accom_id, format=None):
+        accom = self.get_accom(accom_id)
+        serializers = AccomodationSerializer(accom, request.data)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serializers.data)
+        else:
+            return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
