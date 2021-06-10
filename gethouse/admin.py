@@ -4,7 +4,7 @@ from .models import *
 # Register your models here.
 
 class AccomodationAdmin(admin.ModelAdmin):
-    filter_horizontal = ('Amenities',)
+    filter_horizontal = ('amenities',)
 
 admin.site.register(Profile)
 admin.site.register(Accomodation, AccomodationAdmin)
