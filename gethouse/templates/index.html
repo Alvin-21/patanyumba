@@ -1,1 +1,40 @@
 {%extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{%block content%}
+
+<div class="container">
+    <h1 class="">WELCOME TO PATANYUMBA</h1>
+    <p class="">Here you are able to view various accomodations for you to rent and stay in. Feel free to browse through the catalogue.</p>
+    <form action="{%url 'homepage' %}" method="post">
+        {%csrf_token%}
+        <h5>If you wish to receive updates on various accomodations so as to stay posted, please fill in the below form.</h5>
+        {% bootstrap_form form layout='inline' %}
+        <input type="submit" value="Subscribe">
+    </form>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for accom in accoms %}
+        <div class="col">
+            <div class="card">
+                <img class="card-img-top" src="{{accom.image.url}}" alt="{{accom.title}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{accom.title}}</h5>
+                    <p class="card-text">{{accom.type_of_property}}</p>
+                    <p class="card-text">{{accom.rent}}</p>
+                    <p class="card-text">{{accom.address}}</p>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-sm" href="#">View Accomodation</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{%endblock%}
+
+{% block scripts %} 
+{{block.super}}
+  <script type="text/javascript" src="{%static 'js/subscription.js'%}"></script>
+{% endblock %}
