@@ -1,0 +1,1 @@
+web: gunicorn patanyumba.wsgi --log-file -
