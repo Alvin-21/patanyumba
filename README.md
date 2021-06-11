@@ -5,7 +5,7 @@
 <table>
 <tr>
 <td>
-  This web application allows a user view various accomodations on the site to see which one's best for the to live in.
+  This web application allows a user view various accomodations on the site to see which one's best for them to live in.
 
   Users will have the ability to achieve the following:
 
