@@ -1,4 +1,4 @@
-<img src="static/img/awards.png">
+
 
 # PataNyumba
 
@@ -19,13 +19,16 @@
 
 ## Demo
 
-Here is a working live demo : 
+Here is a working live demo : https://patanyumba.herokuapp.com
 
 ## API Endpoints
 
 The API Endpoints are:
-- 
-- 
+- https://patanyumba.herokuapp.com/api-token-auth/
+- https://patanyumba.herokuapp.com/api/accomodations
+- https://patanyumba.herokuapp.com/api/accomodation/accom-id/(\d+)
+- https://patanyumba.herokuapp.com/api/profiles
+- https://patanyumba.herokuapp.com/api/profile/profile-id/(\d+)
 
 ### Landing Page
 
